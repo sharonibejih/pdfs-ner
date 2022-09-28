@@ -51,6 +51,3 @@ if __name__ == '__main__':
         else:
             print(
                 'Sorry, this file type is not supported. \nExpected file format is ".pdf"')
-
-    # except:
-    #     print("Expected command:\npython pdf_ner.py --file_path <path to pdf>\n")
