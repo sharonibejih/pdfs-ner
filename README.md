@@ -1,29 +1,35 @@
-# Optical Character Recognition from PDFs and Images
-Reading texts in PDF or Images.
+# Named Entity Recognition in PDFs
+Named Entity Recognition (NER) is used to retrieve textual information of entities. Examples of these entities are `names`, `location`, `date`, `organisation`, etc. It is very useful in very long texts when one needs to have a understand the context in the paper, for example in political articles, to have an idea of who or what is being discussed or in research papers, to identify the known keywords. 
 
-## Steps:
+Since NER is very helpful in large text data, which predominantly are in the forms of web pages or pdfs, this project is focused on the extraction of entities from PDFs documents.
+
+
+## Steps taken in project:
+1. Develop an OCR system for extracting texts in PDFs.
+2. Apply spaCy pretrained model for named entity recognition in texts.
+3. Convert the output entities to a dataframe and display the output.
+
+## TODO:
+4. Deploy the project.
+5. On the app, users should be able to see the dataframe and download it as a .csv or .txt (optional).
+
+## Run with a Linux CLI:
 1. Clone this repo.
 
-2. Install dependencies by following these steps:
-- `cd ocr`
-    - `pip install -r requirements-exp.txt` in your virtual environment.
+2. Create a virtual environment. 
 
-- Install tesseract: 
-    - For macOS: `brew install tesseract`
-    - For Linux: `sudo apt install tesseract-ocr`
+3. Run `bash setup.sh`
 
-    Additional info on how to install tesseract on Windows can be found [here](https://tesseract-ocr.github.io/tessdoc/Compiling.html).
+## To extract entities from pdf:
+4. Run `python pdf_ner.py --file_path <path/to/pdf>`. __<path/to/pdf>__ is to be replaced with the a path to a pdf file. 
 
-- Open `recognize.py` and edit the following variables with the full path to downloaded _/bin/tesseract_ and _/share/tessdata_, respectively. An example is in `recognize.py`.
-    - `pytesseract.pytesseract.tesseract_cmd` and 
-    - `tessdata_dir_config`.
+## To convert pdf to text alone:
+4. Run `python recognize.py --file_path <path/to/pdf>`. __<path/to/pdf>__ is to be replaced with the a path to a pdf file. 
 
+### Output
+A display of the dataframe in the terminal and a _.txt_ file containing the extracted entities.
 
-## How to use:
-After following the installation guide, run the following command line: 
-`python recognize.py --file_path <path/to/file>`
+## Major libraries:
+- [pytesseract](https://github.com/madmaze/pytesseract)
+- [spaCy](https://spacy.io)
 
-__Please Note that expected file format is either .pdf, .jpeg, .jpg or .png.__
-
-To learn more about `pytesseract`, please refer to this [repository](https://github.com/madmaze/pytesseract).
-# pdfs-ner
